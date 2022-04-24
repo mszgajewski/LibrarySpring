@@ -18,6 +18,5 @@ public class Reader {
     private String surname;
     private String email;
     private String phoneNumber;
-    @OneToOne(mappedBy = "readerId")
-    private Library library;
+
 }
