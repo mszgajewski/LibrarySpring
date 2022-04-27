@@ -18,7 +18,7 @@ public class BorrowService {
         borrowRepository.save(borrow);
     }
 
-    public List<Borrow> findAll() {
+    public List<Borrow> findAllBorrows() {
         return borrowRepository.findAll();
     }
 }

@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class BorrowController {
@@ -27,5 +30,12 @@ public class BorrowController {
     public String submitForm(@ModelAttribute("borrow") Borrow borrow) {
         borrowService.borrowBook(borrow);
         return "home";
+    }
+
+    @RequestMapping("/allBooks")
+    public String showAllBooks(Model model) {
+       List<Borrow> borrows = borrowService.findAllBorrows();
+       model.addAttribute("borrow", borrows);
+        return "list_of_borrows";
     }
 }
