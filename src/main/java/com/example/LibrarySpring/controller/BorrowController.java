@@ -33,7 +33,7 @@ public class BorrowController {
     }
 
     @RequestMapping("/allBooks")
-    public String showAllBooks(Model model) {
+    public String showAllBorrows(Model model) {
        List<Borrow> borrows = borrowService.findAllBorrows();
        model.addAttribute("borrow", borrows);
         return "list_of_borrows";
