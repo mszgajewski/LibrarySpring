@@ -18,6 +18,10 @@ public class BookService {
         bookRepository.save(book);
     }
 
+    public void removeBook(Book book){
+        bookRepository.delete(book);
+    }
+
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
