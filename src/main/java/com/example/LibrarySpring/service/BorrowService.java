@@ -18,6 +18,10 @@ public class BorrowService {
         borrowRepository.save(borrow);
     }
 
+    public List<Borrow> findBorrowById(int id) {
+        return borrowRepository.findById(id);
+    }
+
     public List<Borrow> findAllBorrows() {
         return borrowRepository.findAll();
     }
