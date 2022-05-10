@@ -26,7 +26,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public List<Book> findAll(String keyword) {
+    public List<Book> findBookByKeyword(String keyword) {
         return bookRepository.findByKeyword(keyword);
     }
 }
