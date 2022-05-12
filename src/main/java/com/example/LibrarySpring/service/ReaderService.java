@@ -9,7 +9,7 @@ public class ReaderService {
 
     ReaderRepository readerRepository;
 
-    public  ReaderService(ReaderRepository readerRepository){
+    public ReaderService(ReaderRepository readerRepository){
         this.readerRepository = readerRepository;
     }
 

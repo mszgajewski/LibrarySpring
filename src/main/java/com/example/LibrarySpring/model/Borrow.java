@@ -25,8 +25,7 @@ public class Borrow {
     private Date returnDate;
     private String comment;
 
-    public Borrow(int readerId, int bookId, Date borrowDate, Date returnDate, String comment, Reader reader) {
-        this.readerId = readerId;
+    public Borrow(int bookId, Date borrowDate, Date returnDate, String comment, Reader reader) {
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;

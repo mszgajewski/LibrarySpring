@@ -18,15 +18,11 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public void removeBook(Book book){
-        bookRepository.delete(book);
-    }
-
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
-    public List<Book> findBookByKeyword(String keyword) {
-        return bookRepository.findByKeyword(keyword);
+    public List<Book> findAll(String keyword) {
+        return bookRepository.findAllByKeyword(keyword);
     }
 }
