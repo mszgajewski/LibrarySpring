@@ -22,7 +22,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public List<Book> findAll(String keyword) {
-        return bookRepository.findAllByKeyword(keyword);
+    public List<Book> findBookByKeyword(String keyword) {
+        return bookRepository.findBookByKeyword(keyword);
     }
 }

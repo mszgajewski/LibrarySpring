@@ -21,7 +21,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/addBooks")
+    @GetMapping("/showBooks")
     public String showBooks(Model model){
         Book book = new Book();
         model.addAttribute("book", book);
@@ -41,14 +41,14 @@ public class BookController {
 
     @RequestMapping("/allBooks")
     public String showAllBooks(Model model) {
-//        List<Book> books = bookService.findAll();
-//        model.addAttribute("book", books);
+       List<Book> books = bookService.findAll();
+       model.addAttribute("book", books);
         return "list_of_books";
     }
 
     @RequestMapping("/allBooksByKeyword")
     public String showAllBooksByKeyword(Model model, @Param("keyword") String keyword) {
-        List<Book> books = bookService.findAll(keyword);
+        List<Book> books = bookService.findBookByKeyword(keyword);
         model.addAttribute("book", books);
         return "list_of_books";
     }
