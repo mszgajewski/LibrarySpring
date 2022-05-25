@@ -18,6 +18,10 @@ public class BorrowService {
         borrowRepository.save(borrow);
     }
 
+    public void returnBook(Borrow borrow) {
+        borrowRepository.delete(borrow);
+    }
+
     public List<Borrow> findBorrowById(int id) {
         return borrowRepository.findById(id);
     }
