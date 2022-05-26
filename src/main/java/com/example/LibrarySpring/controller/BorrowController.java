@@ -19,20 +19,20 @@ public class BorrowController {
         this.borrowService = borrowService;
     }
 
-    @GetMapping("/borrowBook")
+    @GetMapping("/borrowedBooks")
     public String borrowBook(Model model) {
         Borrow borrow = new Borrow();
         model.addAttribute("borrow", borrow);
         return "home";
     }
 
-    @PostMapping("/register_user")
+    @PostMapping("/borrowBook")
     public String submitForm(@ModelAttribute("borrow") Borrow borrow) {
         borrowService.borrowBook(borrow);
         return "home";
     }
 
-    @RequestMapping("/allBooks")
+    @RequestMapping("/allBorrows")
     public String showAllBorrows(Model model) {
        List<Borrow> borrows = borrowService.findAllBorrows();
        model.addAttribute("borrow", borrows);
