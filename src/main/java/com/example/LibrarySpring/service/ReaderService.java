@@ -20,6 +20,8 @@ public class ReaderService {
         readerRepository.save(reader);
     }
 
+    public void deleteReader(Reader reader) { readerRepository.delete(reader);}
+
     public List<Reader> findAll() {
         return readerRepository.findAll();
     }

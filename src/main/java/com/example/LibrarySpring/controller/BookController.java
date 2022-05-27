@@ -33,10 +33,10 @@ public class BookController {
         return "home";
     }
 
-    @PostMapping("/addBook")
+    @PostMapping("/addBooks")
     public String submitForm(@ModelAttribute("book") Book book) {
         bookService.addBook(book);
-        return "register_success";
+        return "register_form_book";
     }
 
     @RequestMapping("/allBooks")
