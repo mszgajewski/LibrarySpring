@@ -5,10 +5,7 @@ import com.example.LibrarySpring.service.BookService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,6 +47,12 @@ public class BookController {
     public String showAllBooksByKeyword(Model model, @Param("keyword") String keyword) {
         List<Book> books = bookService.findBookByKeyword(keyword);
         model.addAttribute("book", books);
+        return "list_of_books";
+    }
+
+    @DeleteMapping("/deleteBook")
+    public String deleteBook(@ModelAttribute("book") Book book){
+        bookService.deleteBook(book);
         return "list_of_books";
     }
 }
