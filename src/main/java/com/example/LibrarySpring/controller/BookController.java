@@ -18,22 +18,28 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/showBooks")
+    @GetMapping("/home")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/addBooks")
     public String showBooks(Model model){
         Book book = new Book();
         model.addAttribute("book", book);
         return "register_form_book";
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "home";
-    }
-
     @PostMapping("/addBooks")
     public String submitForm(@ModelAttribute("book") Book book) {
         bookService.addBook(book);
-        return "register_form_book";
+        return "register_success";
+    }
+
+    @PostMapping("/getBook")
+    public String deleteForm(@ModelAttribute("book") Book book) {
+        bookService.addBook(book);
+        return "register_success";
     }
 
     @RequestMapping("/allBooks")

@@ -24,9 +24,9 @@ public class ReaderController {
         return "register_form_user";
     }
 
-    @PostMapping("/register_user")
+    @PostMapping("/addReader")
     public String submitForm(@ModelAttribute("reader")Reader reader) {
         readerService.addReader(reader);
-        return "home";
+        return "register_form_user";
     }
 }

@@ -9,13 +9,17 @@
 
     <body>
         <main>
-            <form action="#" th:action="@{/register_user}" th:object="${user}" method="post">
+            <form action="#" th:action="@{/addReader}" th:object="${reader}" method="post">
                 <fieldset>
                     <legend>Zarejestruj się</legend>
-                    <label>Login:</label>
-                    <input type="text" th:field="*{username}">
-                    <label>Hasło:</label>
-                    <input type="password" th:field="*{password}">
+                    <label>Imię:</label>
+                    <input type="text" th:field="*{name}">
+                    <label>Nazwisko:</label>
+                    <input type="text" th:field="*{surname}">
+                    <label>Email:</label>
+                    <input type="email" th:field="*{email}">
+                    <label>Numer Telefonu:</label>
+                    <input type="number" th:field="*{phoneNumber}">
                     <button type="submit">Rejestracja</button>
                 </fieldset>
                 <a href="/home">Wróć do głównego menu</a>
