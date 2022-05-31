@@ -4,10 +4,17 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register books</title>
-        <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_mischka.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     </head>
 
     <body>
+
+    <nav class="teal">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Biblioteka</a>
+        </div>
+    </nav>
         <main>
             <form action="#" th:action="@{/addBooks}" th:object="${book}" method="post">
                 <fieldset>
@@ -16,8 +23,6 @@
                     <input type="text" th:field="*{title}">
                     <label>Autor:</label>
                     <input type="text" th:field="*{author}">
-                    <label>ID:</label>
-                    <input type="number" th:field="*{id}">
                     <label>ISBN:</label>
                     <input type="number" th:field="*{isbn}">
                     <button type="submit">Dodaj</button>
