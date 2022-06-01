@@ -1,9 +1,6 @@
 package com.example.LibrarySpring.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +8,7 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
+@Data
 @Table(name = "Borrows")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,11 +19,11 @@ public class Borrow {
     private Long id;
     public int readerId;
     private int bookId;
-    private Date borrowDate;
-    private Date returnDate;
+    private String borrowDate;
+    private String returnDate;
     private String comment;
 
-    public Borrow(int bookId, Date borrowDate, Date returnDate, String comment, Reader reader) {
+    public Borrow(int bookId, String borrowDate, String returnDate, String comment, Reader reader) {
         this.bookId = bookId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;

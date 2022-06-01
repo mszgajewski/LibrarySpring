@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registation success</title>
+        <link rel="stylesheet" href="https://igoradamenko.github.io/awsm.css/css/awsm_theme_mischka.css">
+    </head>
+
+    <body>
+        <main>
+            <form action="#" th:action="@{/register}" th:object="${borrow}" method="post">
+                <h2>Registration succeeded</h2>
+                <fieldset>
+
+                    <span>Wypozyczenie zostało dodane:</span><br>
+                    <span th:text="${borrow.id}"></span><br>
+                    <span th:text="${borrow.readerId}"></span><br>
+                    <span th:text="${borrow.bookId}"></span><br>
+                    <span th:text="${borrow.borrowDate}"></span>
+                    <span th:text="${borrow.returnDate}"></span>
+                    <span th:text="${borrow.comment}"></span>
+
+                </fieldset>
+                <a href="/addUser">Wypożycz kolejną</a>
+
+            </form>
+        </main>
+    </body>
+</html>

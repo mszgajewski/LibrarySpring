@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -55,6 +56,8 @@ public class BookController {
         model.addAttribute("book", books);
         return "list_of_books";
     }
+
+
 
     @DeleteMapping("/deleteBook")
     public String deleteBook(@ModelAttribute("book") Book book){
