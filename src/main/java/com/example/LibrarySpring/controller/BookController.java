@@ -1,7 +1,9 @@
 package com.example.LibrarySpring.controller;
 
 import com.example.LibrarySpring.model.Book;
+import com.example.LibrarySpring.repository.BookRepository;
 import com.example.LibrarySpring.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,10 @@ import java.util.List;
 @Controller
 public class BookController {
 
+    @Autowired
+    BookRepository bookRepository;
+
+    @Autowired
     BookService bookService;
 
     public BookController(BookService bookService) {
@@ -37,12 +43,6 @@ public class BookController {
         return "register_success";
     }
 
-    @PostMapping("/getBook")
-    public String deleteForm(@ModelAttribute("book") Book book) {
-        bookService.addBook(book);
-        return "register_success";
-    }
-
     @RequestMapping("/allBooks")
     public String showAllBooks(Model model) {
        List<Book> books = bookService.findAll();
@@ -57,11 +57,17 @@ public class BookController {
         return "list_of_books";
     }
 
+    @GetMapping("/updateBook/{id}")
+    public String updateBook(@PathVariable(value = "id") long id, Model model) {
+        Book book = bookService.findBookById(id);
+        model.addAttribute("book", book);
+        return "register_form_book";
+    }
 
-
-    @DeleteMapping("/deleteBook")
-    public String deleteBook(@ModelAttribute("book") Book book){
-        bookService.deleteBook(book);
+    @GetMapping("/deleteBook/{id}")
+    public String deleteBook(@PathVariable(value = "id") long id) {
+        this.bookService.deleteBookById(id);
         return "list_of_books";
     }
 }
+

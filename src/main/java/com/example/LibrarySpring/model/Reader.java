@@ -20,7 +20,11 @@ public class Reader {
     private String surname;
     private String email;
     private String phoneNumber;
-
+/*
+    @OneToOne
+    @JoinColumn(name = "readerId")
+    private Borrow borrow;
+*/
     public Reader(String name, String surname, String email, String phoneNumber) {
         this.name = name;
         this.surname = surname;

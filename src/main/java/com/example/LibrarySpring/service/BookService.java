@@ -5,6 +5,7 @@ import com.example.LibrarySpring.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -18,6 +19,8 @@ public class BookService {
         bookRepository.save(book);
     }
 
+    public void deleteBookById(long id) { bookRepository.deleteById(id); }
+
     public void deleteBook(Book book) { bookRepository.delete(book); }
 
     public List<Book> findAll() {
@@ -27,4 +30,16 @@ public class BookService {
     public List<Book> findBookByKeyword(String keyword) {
         return bookRepository.findBookByKeyword(keyword);
     }
+
+    public Book findBookById(long id) {
+        Optional <Book> optional = Optional.ofNullable(bookRepository.findBookById(id));
+        Book book = null;
+        if(optional.isPresent()) {
+            book = optional.get();
+        } else {
+            throw new RuntimeException("Nie znaleziono książki po id :: " + id);
+        }
+        return book;
+    }
+
 }

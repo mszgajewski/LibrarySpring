@@ -43,8 +43,8 @@
                             <td th:text="${books2.author}"></td>
                             <td th:text="${books2.isbn}"></td>
                             <td>
-                                <a th:href="@{/updateBook(book=${book})}" class="btn btn-info">Edytuj</a>
-                                <a th:href="@{/deleteBook(book=${book})}" class="btn btn-danger ml-2">Usuń</a>
+                                <a th:href="@{/updateBook/{id}(book=${book.id})}" class="btn btn-info">Edytuj</a>
+                                <!--<a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>-->
                             </td>
                         </tr>
 

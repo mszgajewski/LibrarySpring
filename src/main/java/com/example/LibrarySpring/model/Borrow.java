@@ -22,6 +22,13 @@ public class Borrow {
     private String borrowDate;
     private String returnDate;
     private String comment;
+/*
+    @OneToOne(mappedBy = "borrow")
+    private Book book;
+
+    @OneToOne(mappedBy = "borrow")
+    private Reader reader;
+*/
 
     public Borrow(int bookId, String borrowDate, String returnDate, String comment, Reader reader) {
         this.bookId = bookId;
