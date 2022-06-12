@@ -18,7 +18,7 @@
     </nav>
         <main>
 
-            <form action="#" th:action="@{/allBooksByKeyword}" method="post">
+            <form action="#" th:action="@{/allBooks}" method="post">
 
                     <fieldset>
                         <legend>Wyszukaj książkę:</legend>
@@ -27,7 +27,6 @@
                     </fieldset>
                 <div class="container">
                     <table id="library-table" class="striped">
-                        <thead>
                         <tr>
                             <th>ID</th>
                             <th>Tytuł</th>
@@ -35,20 +34,17 @@
                             <th>ISBN</th>
                             <th>Akcje</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="books2 : ${book}">
-                            <td th:text="${books2.id}"></td>
-                            <td th:text="${books2.title}"></td>
-                            <td th:text="${books2.author}"></td>
-                            <td th:text="${books2.isbn}"></td>
+                        <tr th:each="book : ${book}">
+                            <td th:text="${book.id}"></td>
+                            <td th:text="${book.title}"></td>
+                            <td th:text="${book.author}"></td>
+                            <td th:text="${book.isbn}"></td>
                             <td>
-                                <a th:href="@{/updateBook/{id}(book=${book.id})}" class="btn btn-info">Edytuj</a>
-                                <!<a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a>-->
+                                <a th:href="@{/updateBook/{id}(id=${book.id})}" class="btn btn-">Edytuj</a>
+                                <a th:href="@{/deleteBook/{id}(id=${book.id})}" class="btn btn-danger">Usuń</a>
                             </td>
                         </tr>
 
-                        </tbody>
                     </table>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

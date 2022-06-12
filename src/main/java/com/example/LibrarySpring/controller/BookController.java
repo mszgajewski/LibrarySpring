@@ -58,10 +58,18 @@ public class BookController {
     }
 
     @GetMapping("/updateBook/{id}")
-    public String updateBook(@PathVariable(value = "id") long id, Model model) {
+    public String showAllBooks(@PathVariable(value = "id") long id, Model model) {
         Book book = bookService.findBookById(id);
         model.addAttribute("book", book);
-        return "register_form_book";
+        return "book_edit";
+    }
+    @PostMapping("/updateBook/{id}")
+    public String updateBook(@ModelAttribute("editBook") Book book, @PathVariable("id") Long id,
+                                 Model model) {
+        Book editedBook = bookService.findBookById(id);
+        bookRepository.save(editedBook);
+        model.addAttribute("book", book);
+        return "list_of_books";
     }
 
     @GetMapping("/deleteBook/{id}")
