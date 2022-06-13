@@ -2,6 +2,7 @@ package com.example.LibrarySpring.controller;
 
 import com.example.LibrarySpring.model.Book;
 import com.example.LibrarySpring.model.Reader;
+import com.example.LibrarySpring.repository.ReaderRepository;
 import com.example.LibrarySpring.service.ReaderService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import java.util.List;
 public class ReaderController {
 
     ReaderService readerService;
+
+    ReaderRepository readerRepository;
 
     public ReaderController(ReaderService readerService) {
         this.readerService = readerService;
@@ -52,9 +55,25 @@ public class ReaderController {
         return "list_of_readers";
     }
 
-    @DeleteMapping("/deleteReader")
-    public String deleteReader(@ModelAttribute("reader") Reader reader){
-        readerService.deleteReader(reader);
+    @GetMapping("/updateReader/{id}")
+    public String updateReader(@PathVariable("id") Long id, Model model) {
+        Reader reader = readerService.findReaderById(id);
+        model.addAttribute("book", reader);
+        return "user_edit";
+    }
+
+    @PostMapping("/updateReader/{id}")
+    public String updateReader(@ModelAttribute("reader") Reader editedreader, @PathVariable("id") Long id, Model model) {
+        readerRepository.save(editedreader);
+        model.addAttribute("reader", editedreader);
+        return "list_of_readers";
+    }
+
+    @GetMapping("/deleteReader/{id}")
+    public String deleteReader(@PathVariable("id")Long id, Model model) {
+        Reader reader = readerService.findReaderById(id);
+        readerRepository.delete(reader);
+        model.addAttribute("reader", reader);
         return "list_of_readers";
     }
 }

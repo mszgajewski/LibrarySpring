@@ -18,7 +18,7 @@
     </nav>
         <main>
 
-            <form action="#" th:action="@{/allReadersByName}" method="post">
+            <form action="#" th:action="@{/allReaders}" method="post">
 
                     <fieldset>
                         <legend>Wyszukaj Użytkownika:</legend>
@@ -35,15 +35,20 @@
                             <th>Nazwisko</th>
                             <th>Email</th>
                             <th>Nr. telefonu</th>
+                            <th>Akcje</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="readers2 : ${reader}">
-                            <td th:text="${readers2.id}"></td>
-                            <td th:text="${readers2.name}"></td>
-                            <td th:text="${readers2.surname}"></td>
-                            <td th:text="${readers2.email}"></td>
-                            <td th:text="${readers2.phoneNumber}"></td>
+                        <tr th:each="reader : ${reader}">
+                            <td th:text="${reader.id}"></td>
+                            <td th:text="${reader.name}"></td>
+                            <td th:text="${reader.surname}"></td>
+                            <td th:text="${reader.email}"></td>
+                            <td th:text="${reader.phoneNumber}"></td>
+                            <td>
+                                <a th:href="@{/updateReader/{id}(id=${reader.id})}" class="btn btn-">Edytuj</a>
+                                <a th:href="@{/deleteReader/{id}(id=${reader.id})}" class="btn btn-danger">Usuń</a>
+                            </td>
                         </tr>
 
                         </tbody>

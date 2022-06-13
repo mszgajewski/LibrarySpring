@@ -6,6 +6,7 @@ import com.example.LibrarySpring.repository.ReaderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReaderService {
@@ -29,4 +30,15 @@ public class ReaderService {
     public List<Reader> findReaderByName(String name) {
         return readerRepository.getReaderByName(name);
     }
+        public Reader findReaderById(long id) {
+            Optional<Reader> optional = Optional.ofNullable(readerRepository.findReaderById(id));
+            Reader reader = null;
+            if(optional.isPresent()) {
+                reader = optional.get();
+            } else {
+                throw new RuntimeException("Nie znaleziono czytelnika o id :: " + id);
+            }
+            return reader;
+        }
+
 }

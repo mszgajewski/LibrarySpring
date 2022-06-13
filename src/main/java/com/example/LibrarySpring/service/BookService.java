@@ -37,7 +37,7 @@ public class BookService {
         if(optional.isPresent()) {
             book = optional.get();
         } else {
-            throw new RuntimeException("Nie znaleziono książki po id :: " + id);
+            throw new RuntimeException("Nie znaleziono książki o id :: " + id);
         }
         return book;
     }

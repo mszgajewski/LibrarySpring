@@ -16,15 +16,17 @@
         </div>
     </nav>
         <main>
-            <form th:action="@{/updateBook/{id}(id=*{id})}" th:object="${book}" method="post">
+            <form th:action="@{/updateReader/{id}(id=*{id})}" th:object="${reader}" method="post">
                 <fieldset>
-                    <legend>Edytuj dane książki</legend>
-                    <label>Tytuł:</label>
-                    <input type="text" th:field="*{title}">
-                    <label>Autor:</label>
-                    <input type="text" th:field="*{author}">
-                    <label>ISBN:</label>
-                    <input type="number" th:field="*{isbn}">
+                    <legend>Edytuj dane czytelnika</legend>
+                    <label>Imię:</label>
+                    <input type="text" th:field="*{name}">
+                    <label>Nazwisko:</label>
+                    <input type="text" th:field="*{surname}">
+                    <label>Adres email:</label>
+                    <input type="email" th:field="*{email}">
+                    <label>Numer telefonu:</label>
+                    <input type="number" th:field="*{phoneNumber}">
                     <button type="submit">Zapisz</button>
                 </fieldset>
                 <a href="/home">Wróć do głównego menu</a>

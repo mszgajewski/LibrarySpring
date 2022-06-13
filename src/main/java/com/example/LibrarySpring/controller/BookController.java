@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -58,23 +57,24 @@ public class BookController {
     }
 
     @GetMapping("/updateBook/{id}")
-    public String showAllBooks(@PathVariable(value = "id") long id, Model model) {
+    public String updateBook(@PathVariable("id") Long id, Model model) {
         Book book = bookService.findBookById(id);
         model.addAttribute("book", book);
         return "book_edit";
     }
+
     @PostMapping("/updateBook/{id}")
-    public String updateBook(@ModelAttribute("editBook") Book book, @PathVariable("id") Long id,
-                                 Model model) {
-        Book editedBook = bookService.findBookById(id);
-        bookRepository.save(editedBook);
-        model.addAttribute("book", book);
+    public String updateBook(@ModelAttribute("book") Book editedbook, @PathVariable("id") Long id, Model model) {
+        bookRepository.save(editedbook);
+        model.addAttribute("book", editedbook);
         return "list_of_books";
     }
 
     @GetMapping("/deleteBook/{id}")
-    public String deleteBook(@PathVariable(value = "id") long id) {
-        this.bookService.deleteBookById(id);
+    public String deleteBook(@PathVariable("id")Long id, Model model) {
+        Book book = bookService.findBookById(id);
+        bookRepository.delete(book);
+        model.addAttribute("book", book);
         return "list_of_books";
     }
 }
