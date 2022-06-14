@@ -4,6 +4,7 @@ import com.example.LibrarySpring.model.Book;
 import com.example.LibrarySpring.model.Reader;
 import com.example.LibrarySpring.repository.ReaderRepository;
 import com.example.LibrarySpring.service.ReaderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +15,10 @@ import java.util.List;
 @Controller
 public class ReaderController {
 
+    @Autowired
     ReaderService readerService;
 
+    @Autowired
     ReaderRepository readerRepository;
 
     public ReaderController(ReaderService readerService) {
@@ -58,14 +61,14 @@ public class ReaderController {
     @GetMapping("/updateReader/{id}")
     public String updateReader(@PathVariable("id") Long id, Model model) {
         Reader reader = readerService.findReaderById(id);
-        model.addAttribute("book", reader);
+        model.addAttribute("reader", reader);
         return "user_edit";
     }
 
     @PostMapping("/updateReader/{id}")
-    public String updateReader(@ModelAttribute("reader") Reader editedreader, @PathVariable("id") Long id, Model model) {
-        readerRepository.save(editedreader);
-        model.addAttribute("reader", editedreader);
+    public String updateReader(@ModelAttribute("reader") Reader editedReader, @PathVariable("id") Long id, Model model) {
+        readerRepository.save(editedReader);
+        model.addAttribute("reader", editedReader);
         return "list_of_readers";
     }
 

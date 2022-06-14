@@ -1,6 +1,5 @@
 package com.example.LibrarySpring.service;
 
-import com.example.LibrarySpring.model.Book;
 import com.example.LibrarySpring.model.Reader;
 import com.example.LibrarySpring.repository.ReaderRepository;
 import org.springframework.stereotype.Service;

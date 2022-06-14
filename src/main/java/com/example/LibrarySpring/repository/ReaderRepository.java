@@ -1,6 +1,5 @@
 package com.example.LibrarySpring.repository;
 
-import com.example.LibrarySpring.model.Book;
 import com.example.LibrarySpring.model.Reader;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +11,11 @@ public interface ReaderRepository extends JpaRepository<Reader,Long> {
     List<Reader> getReaderByName(String name);
 
     List <Reader> findAll();
+
+    @Override
+    void delete(Reader entity);
+
+
 
     Reader findReaderById(long bookId);
 }

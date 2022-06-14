@@ -64,9 +64,9 @@ public class BookController {
     }
 
     @PostMapping("/updateBook/{id}")
-    public String updateBook(@ModelAttribute("book") Book editedbook, @PathVariable("id") Long id, Model model) {
-        bookRepository.save(editedbook);
-        model.addAttribute("book", editedbook);
+    public String updateBook(@ModelAttribute("book") Book editedBook, @PathVariable("id") Long id, Model model) {
+        bookRepository.save(editedBook);
+        model.addAttribute("book", editedBook);
         return "list_of_books";
     }
 

@@ -28,7 +28,6 @@
 
                 <div class="container">
                     <table id="library-table" class="striped">
-                        <thead>
                         <tr>
                             <th>ID</th>
                             <th>Imię</th>
@@ -37,8 +36,6 @@
                             <th>Nr. telefonu</th>
                             <th>Akcje</th>
                         </tr>
-                        </thead>
-                        <tbody>
                         <tr th:each="reader : ${reader}">
                             <td th:text="${reader.id}"></td>
                             <td th:text="${reader.name}"></td>
@@ -50,8 +47,6 @@
                                 <a th:href="@{/deleteReader/{id}(id=${reader.id})}" class="btn btn-danger">Usuń</a>
                             </td>
                         </tr>
-
-                        </tbody>
                     </table>
                 </div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
