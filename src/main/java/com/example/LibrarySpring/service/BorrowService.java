@@ -1,10 +1,12 @@
 package com.example.LibrarySpring.service;
 
 import com.example.LibrarySpring.model.Borrow;
+import com.example.LibrarySpring.model.Reader;
 import com.example.LibrarySpring.repository.BorrowRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BorrowService {
@@ -22,8 +24,15 @@ public class BorrowService {
         borrowRepository.delete(borrow);
     }
 
-    public List<Borrow> findBorrowById(int id) {
-        return borrowRepository.findById(id);
+    public Borrow findBorrowById(long id) {
+        Optional<Borrow> optional = Optional.ofNullable(borrowRepository.findBorrowById(id));
+        Borrow borrow = null;
+        if(optional.isPresent()) {
+            borrow = optional.get();
+        } else {
+            throw new RuntimeException("Nie znaleziono wypożyczenia o id :: " + id);
+        }
+        return borrow;
     }
 
     public List<Borrow> findAllBorrows() {
