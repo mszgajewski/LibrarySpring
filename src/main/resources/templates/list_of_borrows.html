@@ -36,6 +36,7 @@
                             <th>Data wypożyczenia</th>
                             <th>Data zwrotu</th>
                             <th>Komentarz</th>
+                            <th> Usuń Wypożyczenie</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,9 @@
                             <td th:text="${borrows2.borrowDate}"></td>
                             <td th:text="${borrows2.returnDate}"></td>
                             <td th:text="${borrows2.comment}"></td>
+                            <td>
+                                <a th:href="@{/returnBook/{id}(id=${borrows2.id})}" class="btn btn-danger">Usuń</a>
+                            </td>
                         </tr>
 
                         </tbody>
