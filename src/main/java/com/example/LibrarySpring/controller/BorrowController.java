@@ -1,8 +1,6 @@
 package com.example.LibrarySpring.controller;
 
-import com.example.LibrarySpring.model.Book;
 import com.example.LibrarySpring.model.Borrow;
-import com.example.LibrarySpring.model.Reader;
 import com.example.LibrarySpring.repository.BorrowRepository;
 import com.example.LibrarySpring.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
