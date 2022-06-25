@@ -19,11 +19,7 @@ public class Book {
     private String title;
     private String author;
     private int isbn;
-/*
-    @OneToOne
-    @JoinColumn(name = "bookId")
-    private Borrow borrow;
-*/
+
     public Book(String title, String author, int isbn) {
         this.title = title;
         this.author = author;

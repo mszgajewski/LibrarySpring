@@ -15,15 +15,18 @@ public class Reader {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private String surname;
     private String email;
     private String phoneNumber;
-/*
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "readerId")
-    private Borrow borrow;
+    private Book book;
+
+  /*
 */
     public Reader(String name, String surname, String email, String phoneNumber) {
         this.name = name;
