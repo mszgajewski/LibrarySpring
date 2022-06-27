@@ -3,6 +3,7 @@ package com.example.LibrarySpring.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,16 +16,16 @@ public class Reader {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Column(name = "reader_id")
     private Long id;
     private String name;
     private String surname;
     private String email;
     private String phoneNumber;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "readerId")
-    private Book book;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "readerId", referencedColumnName = "reader_id")
+    private List<Borrow> borrows;
 
   /*
 */
