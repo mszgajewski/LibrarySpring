@@ -15,21 +15,17 @@ import java.util.List;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "bookId")
     private Long id;
     private String title;
     private String author;
     private int isbn;
-
+/*
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bookId", referencedColumnName = "book_id")
-    private List<Borrow> borrows;
+    @JoinColumn(name = "bookId", referencedColumnName = "bookId")
+    private Borrow borrow;
+   
+ */
 
-
-    public Book(String title, String author, int isbn) {
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-    }
 }

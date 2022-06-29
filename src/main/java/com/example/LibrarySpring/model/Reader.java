@@ -15,24 +15,16 @@ import java.util.List;
 public class Reader {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reader_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "readerId")
     private Long id;
     private String name;
     private String surname;
     private String email;
     private String phoneNumber;
-
+/*
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "readerId", referencedColumnName = "reader_id")
-    private List<Borrow> borrows;
-
-  /*
+    @JoinColumn(name = "readerId", referencedColumnName = "readerId")
+    private Borrow borrow;
 */
-    public Reader(String name, String surname, String email, String phoneNumber) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-    }
 }
