@@ -25,7 +25,7 @@ public class Book {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookId", referencedColumnName = "bookId")
     private Borrow borrow;
-   
+
  */
 
 }
