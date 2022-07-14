@@ -23,9 +23,9 @@ public class Reader {
     private String email;
     private String phoneNumber;
 
-
+    /*
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "readerId", referencedColumnName = "readerId")
     private Borrow borrow;
-
+*/
 }

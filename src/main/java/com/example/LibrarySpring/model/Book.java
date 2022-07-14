@@ -21,10 +21,11 @@ public class Book {
     private String title;
     private String author;
     private int isbn;
-
+/*
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookId", referencedColumnName = "bookId")
     private Borrow borrow;
 
+ */
 
 }
